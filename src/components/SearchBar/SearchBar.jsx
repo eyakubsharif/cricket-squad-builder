@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaSearch } from 'react-icons/fa';
 
-const SearchBar = () => {
+const SearchBar = ({}) => {
     return (
         <div className='flex items-center justify-between py-5 w-11/12 mx-auto '>
             <div className='border border-gray-400 rounded text-black flex items-center px-3 py-2 w-8/12 justify-between'>

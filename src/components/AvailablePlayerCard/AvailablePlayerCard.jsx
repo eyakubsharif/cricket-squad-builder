@@ -1,24 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 
-const AvailablePlayerCard = ({player}) => {
-    console.log(player)
+const AvailablePlayerCard = ({player,handleSelectedPlayer}) => {
+    const [isVisited,setIsVisited]=useState(false)
+    const buttonHandler =()=>{
+        setIsVisited(true)
+        handleSelectedPlayer(player)
+    }
+  
  const {player_name,country_name,flag,player_img,batting_style,bowling_style,role,price,rating}=player
     return (
-        <div className='text-black border border-gray-200 rounded-xl p-2 shadow-xl'>
+        <div className='text-black border border-white rounded-xl p-2 shadow-2xl bg-green-100'>
             <img className='w-full h-40 rounded-xl' src={player_img} alt="" />
             <h1 className='font-bold text-sm mt-2 border-b border-gray-200'>Name :{player_name}</h1>
             <div className='flex items-center gap-2'>
                 <span><img className='w-6 h-3 rounded' src={flag} alt="" /></span>
-                <span>{country_name}</span><span className='text-[#0026FF] font-bold'>{price}$</span>
+                <span className='text-sm'>{country_name}</span><span className='text-[#0026FF] font-bold pl-5'>{price}$</span>
             </div>
-            <p className='text-xs'>Bowling :{bowling_style}</p>
-            <p className='text-xs'>Batting :{batting_style}</p>
+            <p className='text-xs'>Bowling : { bowling_style}</p>
+            <p className='text-xs'>Batting : { batting_style}</p>
             <div className='flex items-center justify-between mt-2'>
                 <p className='text-xs bg-green-50 px-2 text-red-500 py-1' >{role}</p>
                 <p className='text-xs flex items-center gap-1'>Rating : { rating} <FaStar color={"#ffd700"}></FaStar></p>
             </div>
-            <button className='btn btn-primary mt-2 w-full'>Choose Player</button>
+            <button disabled={isVisited} onClick={()=>buttonHandler(player)} className={`${isVisited?"bg-gray-400 px-3 py-1 rounded w-full":"btn btn-primary mt-2 w-full"}`}>{isVisited?"Selected":"Choose Player"}</button>
 
         </div>
     );
