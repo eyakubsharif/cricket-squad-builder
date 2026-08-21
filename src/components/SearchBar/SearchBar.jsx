@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
-const SearchBar = ({handleRole,handleCountry}) => {
+const SearchBar = ({handleRole,handleCountry,handleSearchValue}) => {
 
     const handleChange =(e)=>{
         const value = e.target.value 
@@ -12,10 +12,15 @@ const SearchBar = ({handleRole,handleCountry}) => {
         const selectedCountry = e.target.value 
         handleCountry(selectedCountry)
     }
+    const handleSearch =(e)=>{
+        const value =e.target.value 
+        handleSearchValue(value)
+        console.log(value)
+    }
     return (
-        <div className='flex items-center justify-between py-5 w-11/12 mx-auto '>
+        <div className='flex md:flex-row flex-col items-center justify-between py-5 w-11/12 mx-auto '>
             <div className='border border-gray-400 rounded text-black flex items-center px-3 py-2 w-8/12 justify-between'>
-                <input type="text" placeholder='Search Players Here' className='text-black outline-none'/>
+                <input onChange={handleSearch} type="text" placeholder='Search Players Here' className='text-black outline-none'/>
                 <FaSearch color='gray'></FaSearch>
             </div>
                 <div className='flex items-center justify-around'>

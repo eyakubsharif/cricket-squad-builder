@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 const AvailablePlayerCard = ({player,handleSelectedPlayer,setAvailableBalance,availableBalance}) => {
     const [isVisited,setIsVisited]=useState(false)
     const buttonHandler =()=>{
-        setIsVisited(true)
+
         
         if(availableBalance <=1000){
             toast.warning("Sorry !! you don't have enough money")
@@ -15,6 +15,7 @@ const AvailablePlayerCard = ({player,handleSelectedPlayer,setAvailableBalance,av
             setAvailableBalance(availableBalance-player.price)
         toast.success(`Congratulation you are selected ${player.player_name}`)
         }
+          setIsVisited(true)
         
     }
   
@@ -33,7 +34,7 @@ const AvailablePlayerCard = ({player,handleSelectedPlayer,setAvailableBalance,av
                 <p className='text-xs bg-green-50 px-2 text-red-500 py-1' >{role}</p>
                 <p className='text-xs flex items-center gap-1'>Rating : { rating} <FaStar color={"#ffd700"}></FaStar></p>
             </div>
-            <button disabled={isVisited} onClick={()=>buttonHandler(player)} className={`${isVisited?"bg-gray-400 px-3 py-1 rounded w-full":"btn btn-primary mt-2 w-full"}`}>{isVisited?"Selected":"Choose Player"}</button>
+            <button disabled={isVisited} onClick={()=>buttonHandler(player)} className={`${isVisited?"bg-gray-400 px-3 py-1 rounded w-full":"btn btn-primary mt-2 w-full"}`}>{isVisited ?"Selected":"Choose Player"}</button>
 
         </div>
     );

@@ -19,7 +19,7 @@ const handleDelete =(p)=>{
 }
 
     return (
-        <div className='flex items-center justify-between text-black p-2 mb-2                                                                                    border border-white rounded-xl shadow-2xl'>
+        <div className='flex items-center justify-between text-black px-5 py2 md:p-2 bg-white mb-2                                                                                    border border-white rounded-xl shadow-2xl'>
            <div>
                 <img className='w-20 h-20 rounded-xl' src={player_img} alt="" />                                        
             </div> 

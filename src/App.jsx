@@ -18,6 +18,7 @@ const [availableBalance,setAvailableBalance]=useState(8500)
 const [playerPrice,setPlayerPrice]=useState(0)
 const [roles,setRoles]=useState("")
 const [selectedCountry,setSelectedCountry]=useState('')
+const [SearchValue,setSearchValue] =useState('')
 
 const handleSelectedPlayer =(player)=>{
  
@@ -35,6 +36,8 @@ const removeSelectedPlayer=(ply)=>{
   console.log('your are clicked delete button',ply)
   const removePlayer =selectedPlayer.filter((p)=>p.player_name !== ply.player_name)
   setSelectedPlayer(removePlayer)
+  setAvailableBalance(availableBalance + ply.price)
+  setPlayerPrice(playerPrice-ply.price)
   toast.success(`Delete successfully ${ply.player_name}`)
 }
 const handleRole =(role)=>{
@@ -46,18 +49,22 @@ const handleCountry =(country)=>{
   setSelectedCountry(country)
   
 }
-console.log(selectedCountry)
+
+const handleSearchValue =(value)=>{
+  setSearchValue(value)
+}
 
   return (
    <div className=''>
       <Navbar availableBalance={availableBalance} selectedPlayer={selectedPlayer}></Navbar>
       
-      <div className='flex justify-between bg-white min-h-screen'>
+      <div className='flex md:flex-row md:justify-between flex-col bg-white min-h-screen'>
         {/* left side  */}
-          <div className='w-9/12'>
+          <div className='md:w-9/12'>
           
              <SearchBar handleRole={handleRole} 
              handleCountry={handleCountry} 
+             handleSearchValue={handleSearchValue}
              
              ></SearchBar>
               <Suspense fallback={<span className="loading loading-spinner loading-lg"></span>}>
@@ -68,6 +75,7 @@ console.log(selectedCountry)
                     playersPromise ={playersPromise}
                      roles={roles}
                      selectedCountry={selectedCountry}
+                     SearchValue={SearchValue}
                     >
                    
 
@@ -75,7 +83,7 @@ console.log(selectedCountry)
               </Suspense>
           </div>
           {/* right side  */}
-          <div className='bg-purple-200 w-3/12'>
+          <div className='bg-purple-50 p-5 md:p-2 md:w-3/12'>
                 <SelectedPlayer
                  selectedPlayer={selectedPlayer}
                  availableBalance={availableBalance}

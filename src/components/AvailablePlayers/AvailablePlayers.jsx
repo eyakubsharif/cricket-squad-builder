@@ -1,7 +1,7 @@
 import React, { use } from 'react';
 import AvailablePlayerCard from '../AvailablePlayerCard/AvailablePlayerCard';
 
-const AvailablePlayers = ({playersPromise,handleSelectedPlayer,setAvailableBalance,availableBalance,roles,selectedCountry}) => {
+const AvailablePlayers = ({playersPromise,handleSelectedPlayer,setAvailableBalance,availableBalance,roles,selectedCountry,SearchValue}) => {
     const players =use(playersPromise)
   // roles অনুযায়ী প্লেয়ার ফিল্টার করার লজিক
    
@@ -11,9 +11,11 @@ const AvailablePlayers = ({playersPromise,handleSelectedPlayer,setAvailableBalan
 
         // ২. Country ফিল্টার শর্ত (আপনার JSON ডাটায় দেশের প্রপার্টি 'country' নাকি 'nationality' সে অনুযায়ী নাম মিলিয়ে নেবেন)
         const isCountryMatch = !selectedCountry || selectedCountry === 'All Countries' || player.country_name ?.toLowerCase() === selectedCountry.toLowerCase();
+        const isSearchMatch =!SearchValue ||player.player_name ?.toLowerCase()
+        .includes(SearchValue.toLowerCase());
 
         // দুটি শর্তই সত্য হতে হবে (AND Operation)
-        return isRoleMatch && isCountryMatch;
+        return isRoleMatch && isCountryMatch && isSearchMatch;
 });
 
     return (
