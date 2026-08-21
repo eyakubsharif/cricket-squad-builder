@@ -1,16 +1,32 @@
-# React + Vite
+# 🏏 Cricket Squad Builder
+cricket squad builder is a react-base application where a user can browser a player ,select filter for his cricket squad and manage his available budget.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Live Demo
+Visit Live Demo :"https://cheerful-fairy-f481b9.netlify.app/"
 
-Currently, two official plugins are available:
+# ScreenShort
+<img width="1280" height="1024" alt="image" src="https://github.com/user-attachments/assets/cd480a12-3e67-430a-b1a9-3e6b68fac8ee" />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
+- 🏏 Browse available cricket players
+- 🔍 Search players by name
+- 🌍 Filter players by country
+- 🎯 Filter players by role
+- 💰 Manage player selection within a budget
+- ⭐ Display player ratings
+- 👤 Select players for the squad
+- ❌ Remove selected players
+- 🚫 Prevent duplicate player selection
+- ⚠️ Show warning when balance is insufficient
+- 📱 Fully responsive design
+- 🔔 Toast notifications for user actions
 
-## React Compiler
+## 🛠️ Technologies Used
+- React.js
+- JavaScript (ES6+)
+- Tailwind CSS
+- React Icons
+- React Toastify
+- JSON
+- Vite
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
