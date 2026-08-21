@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
-const AvailablePlayerCard = ({player,handleSelectedPlayer}) => {
+const AvailablePlayerCard = ({player,handleSelectedPlayer,setAvailableBalance,availableBalance}) => {
     const [isVisited,setIsVisited]=useState(false)
     const buttonHandler =()=>{
         setIsVisited(true)
-        handleSelectedPlayer(player)
+        
+        if(availableBalance <=1000){
+            toast.warning("Sorry !! you don't have enough money")
+            return
+        }else{
+            handleSelectedPlayer(player)
+            setAvailableBalance(availableBalance-player.price)
+        toast.success(`Congratulation you are selected ${player.player_name}`)
+        }
+        
     }
   
  const {player_name,country_name,flag,player_img,batting_style,bowling_style,role,price,rating}=player
